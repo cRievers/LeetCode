@@ -1,6 +1,6 @@
-package makeTheStringGreat;
-
+//problema Make The String Great
 //problema 1544
+
 import java.util.Scanner;
 
 public class Solution {
