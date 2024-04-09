@@ -6,6 +6,8 @@ import java.util.Scanner;
 public class Solution {
 
     public static String makeGood(String s) {
+        if(s.length() < 2)
+            return s;
         String str = "";
         int size = s.length();
 
@@ -15,17 +17,19 @@ public class Solution {
             boolean cond2 = (int) s.charAt(i) == (int) s.charAt(i + 1) - 32;
             boolean lastPos = (i == (size - 2));
 
-            if ((cond1 || cond2) && !lastPos) {
-                i++;
-            } else {
+            if ((cond1 || cond2)) {
+                if(!lastPos)
+                    i++;
+            } else{
                 str += s.charAt(i);
                 if (lastPos) {
                     str += s.charAt(i + 1);
                 }
             }
         }
-        if(!s.equals(str))
+        if (!s.equals(str)) {
             return makeGood(str);
+        }
         return str;
     }
 
